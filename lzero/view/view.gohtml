@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div {
+                margin-left: 32px;
+                margin-bottom: 16px;
+            }
+            div > div {
+                display: inline-block;
+                background: #f0f0f0;
+            }
+            h2, h3 {
+                margin-top: 4px;
+                margin-bottom: 4px;
+            }
+            h4 {
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Order: {{ .OrderUid }}</h2>
+        <div>
+            Track number: {{ .TrackNumber }} <br>
+            Entry: {{ .Entry }} <br>
+            <h3>Delivery</h3>
+            <div>
+                Name: {{ .Delivery.Name }} <br>
+                Phone: {{ .Delivery.Phone }} <br>
+                Zip: {{ .Delivery.Zip }} <br>
+                City: {{ .Delivery.City }} <br>
+                Address: {{ .Delivery.Address }} <br>
+                Region: {{ .Delivery.Region }} <br>
+                Email: {{ .Delivery.Email }} <br>
+            </div>
+            <h3>Payment:</h3>
+            <div>
+                Transaction: {{ .Payment.Transaction }} <br>
+                Request ID: {{ .Payment.RequestId }} <br>
+                Currency: {{ .Payment.Currency }} <br>
+                Provider: {{ .Payment.Provider }} <br>
+                Amount: {{ .Payment.Amount }} <br>
+                Payment DT: {{ .Payment.PaymentDt }} <br>
+                Bank: {{ .Payment.Bank }} <br>
+                Delivery cost: {{ .Payment.DeliveryCost }} <br>
+                Goods total: {{ .Payment.GoodsTotal }} <br>
+                Custom fee: {{ .Payment.CustomFee }} <br>
+            </div>
+            <h3>Items:</h3>
+            {{range .Items}}
+                <div>
+                    <h4>RID: {{ .Rid }}</h4>
+                    Chrt ID: {{ .ChrtId }} <br>
+                    Track number: {{ .TrackNumber }} <br>
+                    Price: {{ .Price }} <br>
+                    Name: {{ .Name }} <br>
+                    Sale: {{ .Sale }} <br>
+                    Size: {{ .Size }} <br>
+                    Total price: {{ .TotalPrice }} <br>
+                    NM ID: {{ .NmId }} <br>
+                    Brand: {{ .Brand }} <br>
+                    Status: {{ .Status }} <br>
+                </div>
+            {{end}}
+        <br>
+        Locale: {{ .Locale }} <br>
+        Internal signature: {{ .InternalSignature }} <br>
+        Shard key: {{ .Shardkey }} <br>
+        SM ID: {{ .SmId }} <br>
+        Date created: {{ .DateCreated }} <br>
+        OOF shard: {{ .OofShard }} <br>
+    </div>
+</html>
